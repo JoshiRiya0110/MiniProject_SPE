@@ -33,6 +33,17 @@ pipeline {
             }
          }
 
+         stage('Push Docker Images') {
+            steps {
+                script{
+                    docker.withRegistry('', 'docker-hub-credential') {
+                        sh 'docker tag calculator_image joshiriya/calculator_image:latest'
+                        sh 'docker push joshiriya/calculator_image'
+                    }
+                }
+            }
+         }
+
     }
 
 }
