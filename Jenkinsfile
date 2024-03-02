@@ -28,7 +28,7 @@ pipeline {
          stage('Build Docker Image') {
             steps {
                 script {
-                    //remove the container if it already exists
+                    //remove the container if it already exists 
                     sh 'docker rm -f container_project || true'
                     
                     // Build Docker image
