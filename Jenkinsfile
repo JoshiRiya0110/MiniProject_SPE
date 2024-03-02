@@ -16,10 +16,11 @@ pipeline {
             }
         }
 
-        stage('Maven Build') {
+        stage('Maven Build and Test') {
             steps {
                 script{
-                    sh 'mvn clean install'
+                    sh 'mvn clean package'
+                    sh 'mvn test'
                 }
             }
         }
